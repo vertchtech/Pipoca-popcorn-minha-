@@ -1,0 +1,6 @@
+{
+  "name": "POPCORN — A Melhor Pipoca da Costa Verde",
+  "description": "BioSite e cardápio oficial da Popcorn no Centro de Conceição de Jacareí. Pipocas doces, salgadas e mistas feitas na hora com pedido rápido via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

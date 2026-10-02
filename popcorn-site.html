@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POPCORN — A Melhor Pipoca da Costa Verde</title>
+  <meta name="description" content="BioSite e cardápio oficial da Popcorn no Centro de Conceição de Jacareí. Pipocas doces, salgadas e mistas feitas na hora com pedido rápido via WhatsApp." />
+  
+  <!-- OpenGraph -->
+  <meta property="og:title" content="POPCORN — A Melhor Pipoca da Costa Verde" />
+  <meta property="og:description" content="Pipoca salgada, doce e mista feita na hora. Monte seu pedido e envie direto para o WhatsApp!" />
+  <meta property="og:image" content="https://i.postimg.cc/jSHfcCPz/logo-popcorn.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/jSHfcCPz/logo-popcorn.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            syne: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            brandDark: '#0b0b0e',
+            brandCard: '#131318',
+            brandGold: '#f59e0b',
+            brandGoldLight: '#fbbf24',
+            brandRed: '#dc2626',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Light sheen / shimmer effect */
+    @keyframes sheenSweep {
+      0% { transform: translateX(-150%) rotate(25deg); }
+      100% { transform: translateX(250%) rotate(25deg); }
+    }
+    .animate-sheen {
+      animation: sheenSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes pulseSubtle {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    .animate-pulse-subtle {
+      animation: pulseSubtle 3s ease-in-out infinite;
+    }
+
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #FFFBEB 0%, #FBBF24 50%, #D97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-gold-text {
+      text-shadow: 0 2px 20px rgba(245, 158, 11, 0.5);
+    }
+  </style>
+</head>
+
+<body class="bg-[#0b0b0e] text-[#f4f4f6] font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen overflow-x-hidden">
+
+  <!-- Scroll Progress Indicator -->
+  <div class="fixed top-0 left-0 right-0 h-1 bg-zinc-900/40 z-50 pointer-events-none">
+    <div id="scrollProgress" class="h-full bg-gradient-to-r from-amber-500 via-yellow-400 to-red-500 w-0 transition-all duration-100 ease-out"></div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 w-full border-b border-amber-500/20 bg-[#0b0b0e]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <!-- Zone 1: Wordmark -->
+      <a href="#topo" class="flex items-center gap-2.5 group">
+        <div class="relative w-8 h-8 rounded-full overflow-hidden border border-amber-400/60 shadow-[0_0_12px_rgba(245,158,11,0.4)]">
+          <img src="https://i.postimg.cc/jSHfcCPz/logo-popcorn.jpg" alt="Popcorn Logo" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+        </div>
+        <span class="font-syne text-xl font-extrabold tracking-wider text-gradient-gold">
+          POPCORN
+        </span>
+      </a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-zinc-300">
+        <a href="#pipocas" class="hover:text-amber-400 transition-colors">Pipocas</a>
+        <a href="#tamanhos" class="hover:text-amber-400 transition-colors">Tamanhos</a>
+        <a href="#monte-seu-pedido" class="text-amber-400 font-bold hover:text-amber-300 transition-colors flex items-center gap-1">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+          Monte Seu Pedido
+        </a>
+        <a href="#como-pedir" class="hover:text-amber-400 transition-colors">Como Pedir</a>
+        <a href="#localizacao" class="hover:text-amber-400 transition-colors flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-500"></i>
+          Onde Estamos
+        </a>
+      </nav>
+
+      <!-- Zone 3: CTA Button -->
+      <div class="flex items-center gap-3">
+        <a href="#monte-seu-pedido" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-zinc-950 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 rounded-lg shadow-[0_0_15px_rgba(245,158,11,0.35)] hover:brightness-110 active:scale-95 transition-all whitespace-nowrap">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span>Montar Pedido</span>
+        </a>
+        <a href="https://wa.me/5521965802404" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg active:scale-95 transition-all shadow-sm shadow-emerald-950">
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white text-emerald-600"></i>
+          <span class="hidden xs:inline">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="topo" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-12 px-4 sm:px-6">
+    <!-- Ambient glows -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[650px] h-[500px] sm:h-[650px] bg-gradient-to-b from-amber-500/20 via-amber-600/10 to-transparent rounded-full blur-3xl opacity-70"></div>
+      <div class="absolute top-12 right-1/4 w-72 h-72 bg-red-600/15 rounded-full blur-3xl opacity-60"></div>
+      <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0b0b0e] to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
+      <!-- Top Tag -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-wide shadow-lg mb-6 backdrop-blur-md">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span>Direto do carrinho para você</span>
+        <span class="text-zinc-500">·</span>
+        <span class="flex items-center gap-1 text-zinc-300">
+          <i data-lucide="map-pin" class="w-3 h-3 text-red-400"></i>
+          Conceição de Jacareí
+        </span>
+      </div>
+
+      <!-- 3D Medallion for Official Popcorn Logo -->
+      <div class="relative flex items-center justify-center my-4 sm:my-6 group cursor-pointer">
+        <div class="absolute -inset-6 sm:-inset-8 rounded-3xl bg-gradient-to-r from-amber-500/35 via-yellow-400/25 to-red-600/25 blur-2xl opacity-80 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative rounded-2xl sm:rounded-3xl p-2.5 sm:p-3.5 bg-gradient-to-b from-[#2a2415] via-[#141419] to-[#0c0c0f] border-2 border-amber-400/60 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(245,158,11,0.35)] overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl sm:rounded-3xl z-20">
+            <div class="w-1/2 h-[200%] bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-y-1/4 animate-sheen"></div>
+          </div>
+          <div class="relative z-10 w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-xl sm:rounded-2xl overflow-hidden bg-black flex items-center justify-center shadow-inner">
+            <img src="https://i.postimg.cc/jSHfcCPz/logo-popcorn.jpg" alt="Logo Oficial Popcorn" class="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] transform group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="absolute bottom-1 inset-x-4 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-80"></div>
+        </div>
+      </div>
+
+      <!-- Hero Texts -->
+      <div class="mt-6 sm:mt-8 space-y-3">
+        <h1 class="font-syne text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
+          BEM-VINDO À <span class="text-gradient-gold glow-gold-text">POPCORN</span>
+        </h1>
+        <p class="text-lg sm:text-2xl md:text-3xl font-extrabold text-amber-400 max-w-xl mx-auto">
+          A melhor pipoca da Costa Verde 🍿
+        </p>
+        <p class="text-sm sm:text-base text-zinc-300 max-w-md sm:max-w-lg mx-auto font-medium">
+          Pipoca salgada, doce e mista, feita na hora para você.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center gap-3.5 w-full max-w-md mx-auto">
+        <a href="https://wa.me/5521965802404" target="_blank" rel="noopener noreferrer" class="w-full sm:flex-1 py-4 px-6 rounded-xl font-extrabold text-sm sm:text-base text-white bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-600 hover:from-emerald-500 hover:to-green-500 shadow-[0_0_25px_rgba(16,185,129,0.4)] active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 border border-emerald-400/40">
+          <i data-lucide="message-circle" class="w-5 h-5 fill-white text-emerald-600"></i>
+          <span class="tracking-wide uppercase">FAZER PEDIDO NO WHATSAPP</span>
+        </a>
+        <a href="#monte-seu-pedido" class="w-full sm:w-auto py-3.5 px-5 rounded-xl font-bold text-xs sm:text-sm text-amber-300 bg-zinc-900/90 hover:bg-zinc-800 border border-amber-500/40 shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-amber-400"></i>
+          <span>Monte Seu Pedido</span>
+        </a>
+      </div>
+
+      <!-- Features -->
+      <div class="mt-10 pt-6 border-t border-zinc-800/80 grid grid-cols-3 gap-3 sm:gap-6 text-center max-w-lg mx-auto">
+        <div class="flex flex-col items-center">
+          <i data-lucide="flame" class="w-5 h-5 text-amber-400 mb-1"></i>
+          <span class="text-xs font-bold text-zinc-200">Feita na Hora</span>
+          <span class="text-[11px] text-zinc-400">Quente & Crocante</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <i data-lucide="award" class="w-5 h-5 text-amber-400 mb-1"></i>
+          <span class="text-xs font-bold text-zinc-200">Manteiga Real</span>
+          <span class="text-[11px] text-zinc-400">Sabor Incomparável</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <i data-lucide="map-pin" class="w-5 h-5 text-red-500 mb-1"></i>
+          <span class="text-xs font-bold text-zinc-200">Jacareí Centro</span>
+          <span class="text-[11px] text-zinc-400">Ponto de Fácil Acesso</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: NOSSAS PIPOCAS -->
+  <section id="pipocas" class="relative py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-3">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        <span>Feitas com Grãos Selecionados</span>
+      </div>
+      <h2 class="font-syne text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+        ESCOLHA SUA PIPOCA 🍿
+      </h2>
+      <p class="mt-2.5 text-zinc-300 text-base sm:text-lg font-medium">
+        Salgada, doce ou mista. Você escolhe!
+      </p>
+    </div>
+
+    <!-- Category Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <!-- 1. Pipoca Salgada (com bacon e queijo em saquinho clássico) -->
+      <div class="group relative flex flex-col rounded-3xl overflow-hidden bg-[#131318] border border-amber-500/30 hover:border-amber-500/60 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_10px_25px_rgba(245,158,11,0.1)]">
+        <div class="relative aspect-[4/3] w-full overflow-hidden bg-zinc-950">
+          <img src="/images/salgada.jpg" alt="Pipoca Salgada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#131318] via-transparent to-black/20"></div>
+          <div class="absolute top-3.5 left-3.5">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide backdrop-blur-md bg-amber-400/90 text-zinc-950 border border-amber-200">
+              Crocante & Feita na Hora
+            </span>
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-syne text-xl font-bold text-white tracking-wide">PIPOCA SALGADA</h3>
+            <p class="mt-1 text-xs font-semibold text-amber-400">Pipoca salgada com manteiga e muito sabor</p>
+            <p class="mt-2.5 text-xs text-zinc-300 leading-relaxed font-normal">Nossa pipoca clássica, estourada no calor certo com manteiga derretida artesanal e temperada com ingredientes frescos e sabor marcante.</p>
+            <div class="mt-4 pt-4 border-t border-zinc-800">
+              <span class="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-2">Acompanhamentos:</span>
+              <ul class="grid grid-cols-2 gap-1.5 text-xs text-zinc-200">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Sal e manteiga</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Queijo ralado</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Bacon</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Calabresa</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-6 pt-2">
+            <button onclick="selectCategory('salgada')" class="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all bg-zinc-800 text-amber-300 hover:bg-zinc-700 border border-amber-500/30">
+              <span>Quero Esta Pipoca</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Pipoca Mista -->
+      <div class="group relative flex flex-col rounded-3xl overflow-hidden bg-[#131318] border border-amber-400/50 shadow-[0_10px_30px_rgba(245,158,11,0.15)] ring-1 ring-amber-400/30 transition-all duration-300 hover:-translate-y-1.5">
+        <div class="relative aspect-[4/3] w-full overflow-hidden bg-zinc-950">
+          <img src="/images/mista.jpg" alt="Pipoca Mista" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#131318] via-transparent to-black/20"></div>
+          <div class="absolute top-3.5 left-3.5">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide backdrop-blur-md bg-amber-500/90 text-zinc-950 border border-amber-300">
+              A Favorita dos Clientes
+            </span>
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-syne text-xl font-bold text-white tracking-wide">PIPOCA MISTA</h3>
+            <p class="mt-1 text-xs font-semibold text-amber-400">Combine pipoca salgada + pipoca doce</p>
+            <p class="mt-2.5 text-xs text-zinc-300 leading-relaxed font-normal">Para quem não consegue escolher só uma: combine pipoca salgada + pipoca doce no mesmo recipiente crocante!</p>
+            <div class="mt-4 pt-4 border-t border-zinc-800">
+              <span class="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-2">Sabores Disponíveis:</span>
+              <ul class="grid grid-cols-2 gap-1.5 text-xs text-zinc-200">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Metade Salgada</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Metade Doce</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Manteiga + Queijo</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Caldas Especiais</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-6 pt-2">
+            <button onclick="selectCategory('mista')" class="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all bg-gradient-to-r from-amber-400 to-amber-500 text-zinc-950 hover:brightness-110 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+              <span>Quero Esta Pipoca</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Pipoca Doce -->
+      <div class="group relative flex flex-col rounded-3xl overflow-hidden bg-[#131318] border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_10px_25px_rgba(239,68,68,0.1)]">
+        <div class="relative aspect-[4/3] w-full overflow-hidden bg-zinc-950">
+          <img src="/images/doce.jpg" alt="Pipoca Doce" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#131318] via-transparent to-black/20"></div>
+          <div class="absolute top-3.5 left-3.5">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide backdrop-blur-md bg-red-600/90 text-white border border-red-400">
+              Caramelizada & Irresistível
+            </span>
+          </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-syne text-xl font-bold text-white tracking-wide">PIPOCA DOCE</h3>
+            <p class="mt-1 text-xs font-semibold text-amber-400">Pipoca caramelizada, crocante e cheia de sabor</p>
+            <p class="mt-2.5 text-xs text-zinc-300 leading-relaxed font-normal">Pipoca envolvida em calda de caramelo dourada e finalizada com coberturas generosas de chocolates, cremes e confeitos deliciosos.</p>
+            <div class="mt-4 pt-4 border-t border-zinc-800">
+              <span class="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-2">Coberturas Disponíveis:</span>
+              <ul class="grid grid-cols-2 gap-1.5 text-xs text-zinc-200">
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Leite condensado</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Chocolate</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Chocolate branco</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Cobertura dentadura</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Beijinho</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Banana</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Caramelo</span></li>
+                <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i><span>Coberturas Fini</span></li>
+              </ul>
+              <p class="mt-2 text-[10px] text-zinc-500 italic">*Opções com coberturas e guloseimas tipo Fini disponíveis no carrinho.</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-2">
+            <button onclick="selectCategory('doce')" class="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all bg-red-600/90 text-white hover:bg-red-500 shadow-[0_0_15px_rgba(239,68,68,0.25)]">
+              <span>Quero Esta Pipoca</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: CARDÁPIO E VALORES -->
+  <section id="tamanhos" class="relative py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-3">
+        <i data-lucide="package" class="w-3.5 h-3.5"></i>
+        <span>Cardápio & Valores Oficiais</span>
+      </div>
+      <h2 class="font-syne text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+        ESCOLHA O SEU TAMANHO 🍿
+      </h2>
+      <p class="mt-2 text-zinc-300 text-sm sm:text-base font-medium">
+        Tamanhos perfeitos para matar sua vontade individual ou compartilhar com a família.
+      </p>
+    </div>
+
+    <!-- Sizes Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5" id="sizesGrid">
+      <!-- Generated via JS -->
+    </div>
+  </section>
+
+  <!-- SECTION: MONTE SEU PEDIDO -->
+  <section id="monte-seu-pedido" class="relative py-16 px-4 sm:px-6 max-w-6xl mx-auto scroll-mt-20">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-3">
+        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+        <span>Calculadora & Pedido Rápido</span>
+      </div>
+      <h2 class="font-syne text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+        MONTE SEU PEDIDO 🍿
+      </h2>
+      <p class="mt-2 text-zinc-300 text-sm sm:text-base font-medium">
+        Selecione o tipo, tamanho e acompanhamentos. O valor é calculado na hora e enviado pronto para o WhatsApp!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left: Form Controls -->
+      <div class="lg:col-span-7 space-y-8 bg-[#121217] p-5 sm:p-7 rounded-3xl border border-zinc-800 shadow-xl">
+        <!-- 1. Tipo -->
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-6 h-6 rounded-full bg-amber-400 text-zinc-950 font-black text-xs flex items-center justify-center">1</span>
+            <h3 class="font-syne text-base sm:text-lg font-bold text-white uppercase">Escolha o Tipo de Pipoca</h3>
+          </div>
+          <div class="grid grid-cols-3 gap-2.5">
+            <button type="button" onclick="setType('salgada')" id="typeBtn_salgada" class="py-3 px-2 sm:px-3 rounded-2xl flex flex-col items-center justify-center text-center transition-all bg-[#181820] text-zinc-300 hover:text-white border border-zinc-800">
+              <span class="text-2xl mb-1">🧈</span>
+              <span class="text-xs sm:text-sm font-extrabold tracking-wide uppercase">Salgada</span>
+            </button>
+            <button type="button" onclick="setType('mista')" id="typeBtn_mista" class="py-3 px-2 sm:px-3 rounded-2xl flex flex-col items-center justify-center text-center transition-all bg-gradient-to-b from-amber-400 to-amber-500 text-zinc-950 font-bold shadow-[0_0_20px_rgba(245,158,11,0.35)] scale-[1.02]">
+              <span class="text-2xl mb-1">🍿</span>
+              <span class="text-xs sm:text-sm font-extrabold tracking-wide uppercase">Mista</span>
+            </button>
+            <button type="button" onclick="setType('doce')" id="typeBtn_doce" class="py-3 px-2 sm:px-3 rounded-2xl flex flex-col items-center justify-center text-center transition-all bg-[#181820] text-zinc-300 hover:text-white border border-zinc-800">
+              <span class="text-2xl mb-1">🍫</span>
+              <span class="text-xs sm:text-sm font-extrabold tracking-wide uppercase">Doce</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Tamanho -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-zinc-950 font-black text-xs flex items-center justify-center">2</span>
+              <h3 class="font-syne text-base sm:text-lg font-bold text-white uppercase">Escolha o Tamanho</h3>
+            </div>
+            <span class="text-xs text-amber-400 font-semibold">Valores Oficiais</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="sizeSelectorContainer">
+            <!-- Buttons generated by JS -->
+          </div>
+        </div>
+
+        <!-- 3. Acompanhamentos Salgados -->
+        <div id="salgadaToppingsSection">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-6 h-6 rounded-full bg-amber-400 text-zinc-950 font-black text-xs flex items-center justify-center">3</span>
+            <h3 class="font-syne text-base sm:text-lg font-bold text-white uppercase">Acompanhamentos Salgados</h3>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="salgadaToppingsContainer">
+            <!-- Checkbox buttons -->
+          </div>
+        </div>
+
+        <!-- 4. Coberturas Doces -->
+        <div id="doceToppingsSection">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-6 h-6 rounded-full bg-amber-400 text-zinc-950 font-black text-xs flex items-center justify-center" id="doceStepNum">4</span>
+            <h3 class="font-syne text-base sm:text-lg font-bold text-white uppercase">Coberturas Doces</h3>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="doceToppingsContainer">
+            <!-- Checkbox buttons -->
+          </div>
+          <p class="mt-2 text-[11px] text-zinc-400 italic">*Opções selecionadas com coberturas especiais e guloseimas tipo Fini disponíveis no carrinho.</p>
+        </div>
+
+        <!-- 5. Quantidade & Observações -->
+        <div class="space-y-4 pt-2 border-t border-zinc-800">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-zinc-950 font-black text-xs flex items-center justify-center">5</span>
+              <h3 class="font-syne text-base sm:text-lg font-bold text-white uppercase">Quantidade</h3>
+            </div>
+            <div class="flex items-center gap-3 bg-[#181820] border border-zinc-800 rounded-2xl p-1.5 shadow-inner">
+              <button type="button" onclick="adjustQty(-1)" class="w-9 h-9 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white flex items-center justify-center font-bold text-lg active:scale-95">-</button>
+              <span id="qtyDisplay" class="w-8 text-center font-syne text-lg font-black text-white">1</span>
+              <button type="button" onclick="adjustQty(1)" class="w-9 h-9 rounded-xl bg-amber-400 hover:bg-amber-300 text-zinc-950 flex items-center justify-center font-bold text-lg active:scale-95">+</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-zinc-300 block mb-1.5 uppercase">Observações (Opcional):</label>
+            <textarea id="orderNotes" oninput="updateSummary()" placeholder="Ex: Bastante queijo ralado e calda caprichada..." rows="2" class="w-full bg-[#181820] border border-zinc-800 rounded-xl p-3 text-xs sm:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-amber-400"></textarea>
+            <div class="mt-2 flex flex-wrap items-center gap-1.5">
+              <button type="button" onclick="appendNote('Pouco sal')" class="text-[11px] px-2.5 py-1 rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700">+ Pouco sal</button>
+              <button type="button" onclick="appendNote('Bastante queijo')" class="text-[11px] px-2.5 py-1 rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700">+ Bastante queijo</button>
+              <button type="button" onclick="appendNote('Caprichar na manteiga')" class="text-[11px] px-2.5 py-1 rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700">+ Caprichar na manteiga</button>
+              <button type="button" onclick="appendNote('Calda bem generosa')" class="text-[11px] px-2.5 py-1 rounded-lg bg-zinc-800 text-zinc-300 hover:bg-zinc-700">+ Calda bem generosa</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Live Receipt Card -->
+      <div class="lg:col-span-5 sticky top-20">
+        <div class="relative rounded-3xl p-6 bg-gradient-to-b from-[#1c181f] via-[#14141a] to-[#0f0f13] border-2 border-amber-400/40 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(245,158,11,0.15)] overflow-hidden">
+          <div class="absolute top-0 inset-x-8 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+          <div class="flex items-center justify-between pb-4 border-b border-zinc-800">
+            <h4 class="font-syne text-base font-extrabold text-white uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="receipt" class="w-5 h-5 text-amber-400"></i>
+              Resumo do Pedido
+            </h4>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+              Pronto para Enviar
+            </span>
+          </div>
+
+          <div class="py-4 space-y-3 text-xs sm:text-sm">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-zinc-400 text-xs block">Produto:</span>
+                <span id="summaryProductName" class="font-bold text-white text-sm">Pipoca Mista (Duo) 🍿</span>
+              </div>
+              <div class="text-right">
+                <span class="text-zinc-400 text-xs block">Tamanho:</span>
+                <span id="summarySizeName" class="font-bold text-amber-400 text-sm">Caixinha Média</span>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-zinc-800/80">
+              <span class="text-zinc-400 text-xs block mb-1">Acompanhamentos / Coberturas:</span>
+              <div id="summaryToppingsList" class="flex flex-wrap gap-1 text-zinc-300">
+                <!-- JS populated -->
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-zinc-800/80 flex justify-between text-xs text-zinc-300">
+              <span>Quantidade:</span>
+              <span id="summaryQuantity" class="font-bold text-white">1x</span>
+            </div>
+
+            <div id="summaryNotesContainer" class="pt-2 border-t border-zinc-800/80 text-xs hidden">
+              <span class="text-zinc-400 block">Observação:</span>
+              <p id="summaryNotesText" class="text-zinc-200 italic mt-0.5 bg-zinc-900/60 p-2 rounded-lg border border-zinc-800"></p>
+            </div>
+
+            <div class="pt-2 border-t border-zinc-800/80 flex justify-between text-xs text-zinc-400">
+              <span>Preço unitário:</span>
+              <span id="summaryUnitPrice">R$ 9,00</span>
+            </div>
+          </div>
+
+          <!-- Total -->
+          <div class="mt-2 p-4 rounded-2xl bg-[#0e0e13] border border-amber-500/30 flex items-baseline justify-between shadow-inner">
+            <span class="text-xs uppercase font-bold text-zinc-300 tracking-wider">Valor Total:</span>
+            <div class="flex items-baseline gap-1 text-right">
+              <span class="text-sm font-bold text-amber-400">R$</span>
+              <span id="summaryTotalPrice" class="font-syne text-3xl sm:text-4xl font-black text-white tabular-nums tracking-tight">9,00</span>
+            </div>
+          </div>
+
+          <!-- Send WhatsApp CTA -->
+          <div class="mt-5 space-y-2.5">
+            <a id="btnSendWhatsApp" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-5 rounded-2xl font-extrabold text-sm sm:text-base text-white bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-600 hover:from-emerald-500 hover:to-green-500 shadow-[0_0_25px_rgba(16,185,129,0.45)] active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 border border-emerald-400/40">
+              <i data-lucide="message-circle" class="w-5 h-5 fill-white text-emerald-600"></i>
+              <span class="uppercase tracking-wider">PEDIR PELO WHATSAPP</span>
+            </a>
+
+            <div class="flex items-center justify-between text-[11px] text-zinc-400 pt-1 px-1">
+              <span>Retirada no Centro de Jacareí</span>
+              <button type="button" onclick="copyOrderMessage()" class="hover:text-amber-300 inline-flex items-center gap-1 transition-colors">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span id="copyFeedback">Copiar texto</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: COMO COMPRAR -->
+  <section id="como-pedir" class="relative py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-3">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        <span>Passo a Passo Simples</span>
+      </div>
+      <h2 class="font-syne text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+        É FÁCIL PEDIR 🍿
+      </h2>
+      <p class="mt-2 text-zinc-300 text-sm sm:text-base font-medium">
+        Sem filas e sem complicação. Sua pipoca é preparada e embalada no ponto exato da crocância!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+      <!-- 1 -->
+      <div class="relative p-6 rounded-3xl bg-[#121217] border border-zinc-800/80 hover:border-amber-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl p-0.5 bg-gradient-to-tr from-amber-400 to-yellow-500 shadow-[0_0_20px_rgba(245,158,11,0.25)] flex items-center justify-center">
+              <div class="w-full h-full rounded-[14px] bg-zinc-950 flex items-center justify-center">
+                <i data-lucide="shopping-bag" class="w-6 h-6 text-white"></i>
+              </div>
+            </div>
+            <span class="font-syne text-3xl font-black text-zinc-800">01</span>
+          </div>
+          <span class="text-[11px] font-bold text-amber-400 tracking-widest uppercase">Etapa 1</span>
+          <h3 class="font-syne text-lg font-bold text-white tracking-wide mt-1">ESCOLHA</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed pt-1">Escolha sua pipoca, tamanho e sabores.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-1.5 text-[11px] text-zinc-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          <span>100% Rápido e Seguro</span>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="relative p-6 rounded-3xl bg-[#121217] border border-zinc-800/80 hover:border-emerald-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl p-0.5 bg-gradient-to-tr from-emerald-400 to-green-600 shadow-[0_0_20px_rgba(16,185,129,0.25)] flex items-center justify-center">
+              <div class="w-full h-full rounded-[14px] bg-zinc-950 flex items-center justify-center">
+                <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
+              </div>
+            </div>
+            <span class="font-syne text-3xl font-black text-zinc-800">02</span>
+          </div>
+          <span class="text-[11px] font-bold text-emerald-400 tracking-widest uppercase">Etapa 2</span>
+          <h3 class="font-syne text-lg font-bold text-white tracking-wide mt-1">FAÇA SEU PEDIDO</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed pt-1">Clique no botão e envie seu pedido pelo WhatsApp.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-1.5 text-[11px] text-zinc-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>Mensagem Pronta</span>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="relative p-6 rounded-3xl bg-[#121217] border border-zinc-800/80 hover:border-red-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-14 h-14 rounded-2xl p-0.5 bg-gradient-to-tr from-red-500 to-rose-600 shadow-[0_0_20px_rgba(239,68,68,0.25)] flex items-center justify-center">
+              <div class="w-full h-full rounded-[14px] bg-zinc-950 flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+              </div>
+            </div>
+            <span class="font-syne text-3xl font-black text-zinc-800">03</span>
+          </div>
+          <span class="text-[11px] font-bold text-red-400 tracking-widest uppercase">Etapa 3</span>
+          <h3 class="font-syne text-lg font-bold text-white tracking-wide mt-1">PASSE PARA BUSCAR</h3>
+          <p class="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed pt-1">Combine pelo WhatsApp e passe para buscar sua pipoca.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-1.5 text-[11px] text-zinc-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+          <span>Pipoca Quentinha na Hora</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: LOCALIZAÇÃO -->
+  <section id="localizacao" class="relative py-16 px-4 sm:px-6 max-w-6xl mx-auto scroll-mt-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/25 text-red-400 text-xs font-semibold tracking-wider uppercase mb-3">
+        <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+        <span>Ponto de Fácil Acesso</span>
+      </div>
+      <h2 class="font-syne text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+        ONDE ESTAMOS 📍
+      </h2>
+      <p class="mt-2 text-zinc-300 text-sm sm:text-base font-medium">
+        Centro de Conceição de Jacareí
+      </p>
+    </div>
+
+    <div class="relative rounded-3xl bg-gradient-to-b from-[#181820] to-[#101015] border border-amber-500/30 p-6 sm:p-10 shadow-2xl overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Ponto de Retirada & Carrinho Popcorn</span>
+            <h3 class="font-syne text-2xl sm:text-3xl font-black text-white">Centro de Conceição de Jacareí</h3>
+            <p class="text-sm text-zinc-300 flex items-center gap-1.5 font-medium">Mangaratiba · Costa Verde — Rio de Janeiro</p>
+          </div>
+          <div class="space-y-3 pt-3 border-t border-zinc-800 text-xs sm:text-sm text-zinc-300">
+            <p><strong class="text-white">Horário:</strong> Aberto todos os dias ao entardecer até a noite com pipoca quentinha estourando!</p>
+            <p><strong class="text-white">Retirada Rápida:</strong> Combine pelo WhatsApp e passe para pegar sem filas.</p>
+          </div>
+          <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <a href="https://wa.me/5521965802404" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-5 rounded-xl font-extrabold text-xs sm:text-sm text-white bg-gradient-to-r from-emerald-600 to-green-600 hover:brightness-110 shadow-lg flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-white text-emerald-600"></i>
+              <span class="uppercase tracking-wider">FALAR PELO WHATSAPP</span>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Popcorn+Centro+de+Concei%C3%A7%C3%A3o+de+Jacare%C3%AD" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 px-5 rounded-xl font-extrabold text-xs sm:text-sm text-amber-300 bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 shadow-md flex items-center justify-center gap-2">
+              <i data-lucide="navigation" class="w-4 h-4 text-amber-400"></i>
+              <span class="uppercase tracking-wider">COMO CHEGAR</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden border border-zinc-700/60 bg-[#0d0d12] p-5 text-center shadow-inner">
+          <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-tr from-red-600 to-amber-400 p-0.5 shadow-lg flex items-center justify-center text-xl">
+            🍿
+          </div>
+          <h4 class="mt-3 font-syne text-base font-bold text-white">Popcorn — Centro de Conceição de Jacareí</h4>
+          <p class="text-xs text-zinc-400 mt-1 mb-4">Clique abaixo para traçar sua rota GPS em tempo real.</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Popcorn+Centro+de+Concei%C3%A7%C3%A3o+de+Jacare%C3%AD" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+            <span>Abrir no Google Maps</span>
+            <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative border-t border-zinc-800/80 bg-[#07070a] pt-12 pb-24 md:pb-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-2xl p-1 bg-gradient-to-tr from-amber-500 via-yellow-400 to-red-600 shadow-lg overflow-hidden">
+        <div class="w-full h-full rounded-xl overflow-hidden bg-black flex items-center justify-center">
+          <img src="https://i.postimg.cc/jSHfcCPz/logo-popcorn.jpg" alt="Popcorn Logo" class="w-full h-full object-contain filter drop-shadow" />
+        </div>
+      </div>
+      <div class="mt-4 space-y-1">
+        <h3 class="font-syne text-xl font-black text-white tracking-wider">POPCORN 🍿</h3>
+        <p class="text-xs sm:text-sm text-amber-400 font-semibold">Pipoca salgada, doce e mista.</p>
+        <p class="text-xs text-zinc-400">Centro de Conceição de Jacareí</p>
+        <p class="text-xs text-zinc-300 font-mono pt-1">WhatsApp: <strong class="text-white">21 96580-2404</strong></p>
+      </div>
+      <div class="mt-6">
+        <a href="https://wa.me/5521965802404" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-emerald-600 to-green-600 hover:brightness-110 shadow-lg">
+          <i data-lucide="message-circle" class="w-4 h-4 fill-white text-emerald-600"></i>
+          <span>FALAR NO WHATSAPP AGORA</span>
+        </a>
+      </div>
+      <div class="mt-8 pt-6 border-t border-zinc-900 w-full text-xs text-zinc-500">
+        © POPCORN — Centro de Conceição de Jacareí - RJ. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <div class="fixed bottom-5 right-5 z-50 flex items-center gap-2">
+    <a href="https://wa.me/5521965802404" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Popcorn" class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-500 to-green-400 text-white flex items-center justify-center shadow-[0_4px_25px_rgba(16,185,129,0.5)] hover:scale-110 active:scale-95 transition-all">
+      <span class="absolute -inset-1 rounded-full bg-emerald-400/40 animate-ping opacity-60 pointer-events-none" style="animation-duration: 3s;"></span>
+      <i data-lucide="message-circle" class="w-7 h-7 fill-white text-emerald-600 relative z-10"></i>
+    </a>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (windowHeight > 0) {
+        document.getElementById('scrollProgress').style.width = (totalScroll / windowHeight * 100) + '%';
+      }
+    });
+
+    // Data
+    const SIZES = [
+      { id: 'saquinho_pequeno', name: 'Saquinho Pequeno', type: 'saquinho', price: 5, desc: 'Porção individual clássica', serving: 'Individual' },
+      { id: 'caixinha_pequena', name: 'Caixinha Pequena', type: 'caixinha', price: 7, desc: 'Caixa anti-gordura, mantém o calor', serving: 'Individual' },
+      { id: 'saquinho_medio', name: 'Saquinho Médio', type: 'saquinho', price: 8, desc: 'Tamanho perfeito para matar a vontade', serving: '1 a 2 pessoas' },
+      { id: 'caixinha_media', name: 'Caixinha Média', type: 'caixinha', price: 9, desc: 'Muito pedida! Cabe bastante topping', serving: '1 a 2 pessoas', highlight: true },
+      { id: 'saquinho_grande', name: 'Saquinho Grande', type: 'saquinho', price: 10, desc: 'Generoso para o filme inteiro', serving: '2 pessoas' },
+      { id: 'caixinha_grande', name: 'Caixinha Grande', type: 'caixinha', price: 12, desc: 'A favorita para turbinar com caldas', serving: '2 a 3 pessoas', highlight: true },
+      { id: 'saco_xg', name: 'Saco XG', type: 'saco', price: 17, desc: 'Super porção para turmas', serving: '3 a 4 pessoas' },
+      { id: 'saco_g', name: 'Saco G', type: 'saco', price: 20, desc: 'O maior da casa! Pipoca para toda a família', serving: 'Família (4+)', highlight: true },
+    ];
+
+    const SALGADA_TOPPINGS = [
+      { id: 'sal_manteiga', name: 'Sal e manteiga', icon: '🧈' },
+      { id: 'queijo_ralado', name: 'Queijo ralado', icon: '🧀' },
+      { id: 'bacon', name: 'Bacon', icon: '🥓' },
+      { id: 'calabresa', name: 'Calabresa', icon: '🍖' },
+    ];
+
+    const DOCE_TOPPINGS = [
+      { id: 'leite_condensado', name: 'Leite condensado', icon: '🥛' },
+      { id: 'chocolate', name: 'Chocolate', icon: '🍫' },
+      { id: 'chocolate_branco', name: 'Chocolate branco', icon: '🤍' },
+      { id: 'dentadura', name: 'Cobertura de dentadura', icon: '🍬' },
+      { id: 'beijinho', name: 'Beijinho', icon: '🥥' },
+      { id: 'banana', name: 'Banana', icon: '🍌' },
+      { id: 'caramelo', name: 'Caramelo', icon: '🍯' },
+      { id: 'fini', name: 'Coberturas Fini', icon: '🍭' },
+    ];
+
+    // Order State
+    let orderState = {
+      type: 'mista',
+      sizeId: 'caixinha_media',
+      salgadaToppings: ['sal_manteiga', 'queijo_ralado'],
+      doceToppings: ['leite_condensado', 'chocolate'],
+      quantity: 1,
+      notes: '',
+    };
+
+    // Render Sizes Section
+    function renderSizesGrid() {
+      const grid = document.getElementById('sizesGrid');
+      grid.innerHTML = SIZES.map(size => `
+        <div onclick="selectSize('${size.id}')" class="relative flex flex-col justify-between p-5 rounded-2xl cursor-pointer border transition-all duration-200 group ${orderState.sizeId === size.id ? 'bg-gradient-to-b from-[#262014] to-[#16151c] border-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.25)] ring-1 ring-amber-400' : 'bg-[#121217] border-zinc-800/80 hover:border-amber-500/40 hover:bg-[#16161e]'}">
+          ${size.highlight ? `<div class="absolute -top-2.5 right-4 z-10"><span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-gradient-to-r from-red-600 to-amber-500 text-white shadow-md">Muito Pedido</span></div>` : ''}
+          <div>
+            <div class="flex items-center justify-between text-xs text-zinc-400 font-semibold mb-2">
+              <span class="uppercase tracking-wider text-[11px] text-amber-400/90 font-bold">${size.type}</span>
+              <span class="text-[11px] text-zinc-400">${size.serving}</span>
+            </div>
+            <h3 class="font-syne text-lg font-bold text-white group-hover:text-amber-300 transition-colors">${size.name}</h3>
+            <p class="mt-1.5 text-xs text-zinc-400 min-h-[36px]">${size.desc}</p>
+            <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-baseline gap-1">
+              <span class="text-xs font-bold text-amber-400">R$</span>
+              <span class="text-3xl font-extrabold text-white font-syne">${size.price}</span>
+              <span class="text-sm font-semibold text-zinc-400">,00</span>
+            </div>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="w-full py-2 px-3 rounded-xl text-xs font-bold tracking-wider flex items-center justify-center gap-1.5 transition-all ${orderState.sizeId === size.id ? 'bg-amber-400 text-zinc-950 shadow-md' : 'bg-zinc-800 text-zinc-200 group-hover:bg-amber-500/20 group-hover:text-amber-300'}">
+              ${orderState.sizeId === size.id ? '✓ Selecionado' : 'Escolher este →'}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render Size Selector in Order Builder
+    function renderSizeSelector() {
+      const container = document.getElementById('sizeSelectorContainer');
+      container.innerHTML = SIZES.map(size => `
+        <button type="button" onclick="selectSize('${size.id}')" class="p-3 rounded-xl text-left transition-all relative flex flex-col justify-between ${orderState.sizeId === size.id ? 'bg-amber-400/15 border-2 border-amber-400 text-white shadow-[0_0_15px_rgba(245,158,11,0.2)]' : 'bg-[#181820] border border-zinc-800 text-zinc-300 hover:border-zinc-700'}">
+          <div>
+            <span class="text-[10px] font-bold text-amber-400 uppercase">${size.type}</span>
+            <div class="text-xs font-bold text-white mt-0.5">${size.name.replace(/Saquinho |Caixinha |Saco /, '')}</div>
+          </div>
+          <div class="mt-2 pt-2 border-t border-zinc-800 text-sm font-extrabold text-white">R$ ${size.price},00</div>
+        </button>
+      `).join('');
+    }
+
+    // Render Topping Controls
+    function renderToppings() {
+      const salgadaContainer = document.getElementById('salgadaToppingsContainer');
+      salgadaContainer.innerHTML = SALGADA_TOPPINGS.map(top => {
+        const isChecked = orderState.salgadaToppings.includes(top.id);
+        return `
+          <button type="button" onclick="toggleSalgadaTopping('${top.id}')" class="p-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all ${isChecked ? 'bg-amber-400 text-zinc-950 font-bold shadow-sm' : 'bg-[#181820] text-zinc-300 hover:text-white border border-zinc-800'}">
+            <span>${top.icon}</span>
+            <span class="truncate">${top.name}</span>
+            ${isChecked ? '<span class="ml-auto font-black">✓</span>' : ''}
+          </button>
+        `;
+      }).join('');
+
+      const doceContainer = document.getElementById('doceToppingsContainer');
+      doceContainer.innerHTML = DOCE_TOPPINGS.map(top => {
+        const isChecked = orderState.doceToppings.includes(top.id);
+        return `
+          <button type="button" onclick="toggleDoceTopping('${top.id}')" class="p-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition-all ${isChecked ? 'bg-red-600 text-white font-bold shadow-sm' : 'bg-[#181820] text-zinc-300 hover:text-white border border-zinc-800'}">
+            <span>${top.icon}</span>
+            <span class="truncate">${top.name}</span>
+            ${isChecked ? '<span class="ml-auto font-black">✓</span>' : ''}
+          </button>
+        `;
+      }).join('');
+
+      // Show/hide sections based on type
+      const salgadaSec = document.getElementById('salgadaToppingsSection');
+      const doceSec = document.getElementById('doceToppingsSection');
+      if (orderState.type === 'salgada') {
+        salgadaSec.classList.remove('hidden');
+        doceSec.classList.add('hidden');
+      } else if (orderState.type === 'doce') {
+        salgadaSec.classList.add('hidden');
+        doceSec.classList.remove('hidden');
+      } else {
+        salgadaSec.classList.remove('hidden');
+        doceSec.classList.remove('hidden');
+      }
+    }
+
+    // Handlers
+    function setType(type) {
+      orderState.type = type;
+      ['salgada', 'mista', 'doce'].forEach(t => {
+        const btn = document.getElementById('typeBtn_' + t);
+        if (t === type) {
+          btn.className = "py-3 px-2 sm:px-3 rounded-2xl flex flex-col items-center justify-center text-center transition-all bg-gradient-to-b from-amber-400 to-amber-500 text-zinc-950 font-bold shadow-[0_0_20px_rgba(245,158,11,0.35)] scale-[1.02]";
+        } else {
+          btn.className = "py-3 px-2 sm:px-3 rounded-2xl flex flex-col items-center justify-center text-center transition-all bg-[#181820] text-zinc-300 hover:text-white border border-zinc-800";
+        }
+      });
+      renderToppings();
+      updateSummary();
+    }
+
+    function selectCategory(type) {
+      setType(type);
+      document.getElementById('monte-seu-pedido').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectSize(id) {
+      orderState.sizeId = id;
+      renderSizesGrid();
+      renderSizeSelector();
+      updateSummary();
+      document.getElementById('monte-seu-pedido').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleSalgadaTopping(id) {
+      if (orderState.salgadaToppings.includes(id)) {
+        orderState.salgadaToppings = orderState.salgadaToppings.filter(t => t !== id);
+      } else {
+        orderState.salgadaToppings.push(id);
+      }
+      renderToppings();
+      updateSummary();
+    }
+
+    function toggleDoceTopping(id) {
+      if (orderState.doceToppings.includes(id)) {
+        orderState.doceToppings = orderState.doceToppings.filter(t => t !== id);
+      } else {
+        orderState.doceToppings.push(id);
+      }
+      renderToppings();
+      updateSummary();
+    }
+
+    function adjustQty(delta) {
+      orderState.quantity = Math.max(1, orderState.quantity + delta);
+      document.getElementById('qtyDisplay').innerText = orderState.quantity;
+      updateSummary();
+    }
+
+    function appendNote(text) {
+      const textarea = document.getElementById('orderNotes');
+      if (!textarea.value.trim()) {
+        textarea.value = text;
+      } else if (!textarea.value.includes(text)) {
+        textarea.value += ', ' + text;
+      }
+      orderState.notes = textarea.value;
+      updateSummary();
+    }
+
+    function updateSummary() {
+      orderState.notes = document.getElementById('orderNotes').value;
+      const sizeObj = SIZES.find(s => s.id === orderState.sizeId) || SIZES[0];
+      const unitPrice = sizeObj.price;
+      const totalPrice = unitPrice * orderState.quantity;
+
+      const typeLabel = orderState.type === 'salgada' ? 'Pipoca Salgada 🧈' :
+                        orderState.type === 'doce' ? 'Pipoca Doce 🍫' : 'Pipoca Mista (Duo) 🍿';
+
+      document.getElementById('summaryProductName').innerText = typeLabel;
+      document.getElementById('summarySizeName').innerText = sizeObj.name;
+      document.getElementById('summaryQuantity').innerText = orderState.quantity + 'x';
+      document.getElementById('summaryUnitPrice').innerText = 'R$ ' + unitPrice.toFixed(2).replace('.', ',');
+      document.getElementById('summaryTotalPrice').innerText = totalPrice.toFixed(2).replace('.', ',');
+
+      // Toppings summary
+      let toppingsArr = [];
+      if (orderState.type === 'salgada' || orderState.type === 'mista') {
+        orderState.salgadaToppings.forEach(id => {
+          const t = SALGADA_TOPPINGS.find(x => x.id === id);
+          if (t) toppingsArr.push(`<span class="inline-flex items-center gap-1 text-[11px] bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-md">${t.icon} ${t.name}</span>`);
+        });
+      }
+      if (orderState.type === 'doce' || orderState.type === 'mista') {
+        orderState.doceToppings.forEach(id => {
+          const t = DOCE_TOPPINGS.find(x => x.id === id);
+          if (t) toppingsArr.push(`<span class="inline-flex items-center gap-1 text-[11px] bg-red-500/10 text-red-300 border border-red-500/30 px-2 py-0.5 rounded-md">${t.icon} ${t.name}</span>`);
+        });
+      }
+
+      const toppingsContainer = document.getElementById('summaryToppingsList');
+      if (toppingsArr.length > 0) {
+        toppingsContainer.innerHTML = toppingsArr.join(' ');
+      } else {
+        toppingsContainer.innerHTML = '<span class="text-xs text-zinc-400 italic">Padrão da casa</span>';
+      }
+
+      // Notes
+      const notesContainer = document.getElementById('summaryNotesContainer');
+      const notesText = document.getElementById('summaryNotesText');
+      if (orderState.notes.trim()) {
+        notesContainer.classList.remove('hidden');
+        notesText.innerText = '"' + orderState.notes.trim() + '"';
+      } else {
+        notesContainer.classList.add('hidden');
+      }
+
+      // WhatsApp URL
+      const textToppings = [];
+      if (orderState.type === 'salgada' || orderState.type === 'mista') {
+        orderState.salgadaToppings.forEach(id => {
+          const t = SALGADA_TOPPINGS.find(x => x.id === id);
+          if (t) textToppings.push('[Salgado] ' + t.name);
+        });
+      }
+      if (orderState.type === 'doce' || orderState.type === 'mista') {
+        orderState.doceToppings.forEach(id => {
+          const t = DOCE_TOPPINGS.find(x => x.id === id);
+          if (t) textToppings.push('[Doce] ' + t.name);
+        });
+      }
+      const toppingsString = textToppings.length > 0 ? textToppings.join(', ') : 'Padrão da casa';
+      const notesString = orderState.notes.trim() || 'Nenhuma observação';
+
+      const msg = `🍿 *NOVO PEDIDO — POPCORN JACAREÍ* 🍿
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📍 *Local de Retirada:* Centro de Conceição de Jacareí
+
+• *Tipo de Pipoca:* ${typeLabel}
+• *Tamanho:* ${sizeObj.name} (R$ ${unitPrice.toFixed(2).replace('.', ',')} unid.)
+• *Sabores / Coberturas:* ${toppingsString}
+• *Quantidade:* ${orderState.quantity}x
+• *Observações:* ${notesString}
+━━━━━━━━━━━━━━━━━━━━━━━━━
+💰 *VALOR TOTAL: R$ ${totalPrice.toFixed(2).replace('.', ',')}*
+━━━━━━━━━━━━━━━━━━━━━━━━━
+Olá! Gostaria de confirmar esse pedido feito no site para retirar com vocês quentinho!`;
+
+      document.getElementById('btnSendWhatsApp').href = 'https://wa.me/5521965802404?text=' + encodeURIComponent(msg);
+      window.lastOrderMessage = msg;
+    }
+
+    function copyOrderMessage() {
+      if (window.lastOrderMessage) {
+        navigator.clipboard.writeText(window.lastOrderMessage);
+        const fb = document.getElementById('copyFeedback');
+        fb.innerText = 'Copiado!';
+        fb.classList.add('text-emerald-400', 'font-bold');
+        setTimeout(() => {
+          fb.innerText = 'Copiar texto';
+          fb.classList.remove('text-emerald-400', 'font-bold');
+        }, 2500);
+      }
+    }
+
+    // Init
+    renderSizesGrid();
+    renderSizeSelector();
+    renderToppings();
+    updateSummary();
+  </script>
+</body>
+</html>

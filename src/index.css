@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Ambient cinema glows */
+  .glow-gold {
+    box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.35);
+  }
+  .glow-gold-lg {
+    box-shadow: 0 0 60px -10px rgba(245, 158, 11, 0.45);
+  }
+  .glow-red {
+    box-shadow: 0 0 35px -5px rgba(220, 38, 38, 0.35);
+  }
+  .glow-gold-text {
+    text-shadow: 0 2px 20px rgba(245, 158, 11, 0.5);
+  }
+  
+  /* Text gradient helpers */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FFFBEB 0%, #FBBF24 50%, #D97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-red {
+    background: linear-gradient(135deg, #FECACA 0%, #EF4444 50%, #B91C1C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Light sheen / shimmer effect */
+@keyframes sheenSweep {
+  0% {
+    transform: translateX(-150%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(250%) rotate(25deg);
+  }
+}
+
+.animate-sheen {
+  animation: sheenSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: subtleFloat 5s ease-in-out infinite;
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
